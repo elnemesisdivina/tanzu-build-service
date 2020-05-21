@@ -1,0 +1,4 @@
+# registry needs the full URL, with https:// and a trailing /
+registry: https://index.docker.io/v1/
+username: username
+password: password

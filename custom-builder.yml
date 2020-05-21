@@ -1,0 +1,7 @@
+name: demo-builder
+tag: index.docker.io/techgnosis/tbs-custom-cluster-builder
+scope: Cluster
+order:
+- group:
+  - id: org.cloudfoundry.go-compiler
+  - id: org.cloudfoundry.go-mod
