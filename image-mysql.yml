@@ -3,7 +3,9 @@ source:
     url: "https://github.com/techgnosis/pas-golang-mysql.git"
     revision: demo
 builder:
-  name: demo-builder
+  name: tbs-custom-cluster-builder
   scope: Cluster
 image:
-  tag: index.docker.io/techgnosis/mysql
+  tag: gcr.io/pa-jmusselwhite/mysql
+  #tag: index.docker.io/techgnosis/mysql
+  
