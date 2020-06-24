@@ -1,5 +1,6 @@
-name: demo-builder
-tag: index.docker.io/techgnosis/tbs-custom-cluster-builder
+name: tbs-custom-cluster-builder
+#tag: index.docker.io/techgnosis/tbs-custom-cluster-builder
+tag: gcr.io/pa-jmusselwhite/tbs-custom-cluster-builder
 scope: Cluster
 order:
 - group:
