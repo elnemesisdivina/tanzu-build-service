@@ -1,7 +1,0 @@
-# Do NOT add https:// in front. Just `gcr.io`
-registry: gcr.io
-username: _json_key
-password: >-
-  {
-  }
-

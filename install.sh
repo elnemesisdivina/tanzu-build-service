@@ -17,19 +17,24 @@ DOCKERHUB_USERNAME=username
 GCP_PROJECT=project
 
 #DOCKER_REPOSITORY="index.docker.io/${DOCKERHUB_USERNAME}"
-DOCKER_REPOSITORY="gcr.io/${GCP_PROJECT}"
+#DOCKER_REPOSITORY="gcr.io/${GCP_PROJECT}"
+DOCKER_REPOSITORY="harbor2.lab.home:30003/tbs"
 
 #DOCKER_REGISTRY="index.docker.io"
-DOCKER_REGISTRY="gcr.io"
+#DOCKER_REGISTRY="gcr.io"
+DOCKER_REGISTRY="harbor2.lab.home:30003"
 
 #REGISTRY_USERNAME=${DOCKERHUB_USERNAME}
-REGISTRY_USERNAME="oauth2accesstoken"
+#REGISTRY_USERNAME="oauth2accesstoken"
+REGISTRY_USERNAME=admin
 
 #REGISTRY_PASSWORD="password"
-REGISTRY_PASSWORD="$(gcloud auth print-access-token)"
+#REGISTRY_PASSWORD="$(gcloud auth print-access-token)"
+REGISTRY_PASSWORD="Harbor12345"
 
 #CUSTOM_BUILDER_IMAGE="index.docker.io/${DOCKERHUB_USERNAME}/tbs-default-cluster-builder"
-CUSTOM_BUILDER_IMAGE="gcr.io/${GCP_PROJECT}/tbs-default-cluster-builder"
+#CUSTOM_BUILDER_IMAGE="gcr.io/${GCP_PROJECT}/tbs-default-cluster-builder"
+CUSTOM_BUILDER_IMAGE="harbor2.lab.home:30003/tbs/tbs-default-cluster-builder"
 
 duffle install tbs -c ./credentials.yml  \
   --set kubernetes_env=tbs \
@@ -38,5 +43,5 @@ duffle install tbs -c ./credentials.yml  \
   --set registry_username="${REGISTRY_USERNAME}" \
   --set registry_password="${REGISTRY_PASSWORD}" \
   --set custom_builder_image="${CUSTOM_BUILDER_IMAGE}" \
-  -f ./build-service-0.1.0.tgz \
+  -f ./build-service-0.2.0.tgz \
   -m ./relocated.json
