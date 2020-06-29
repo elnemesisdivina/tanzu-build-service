@@ -1,0 +1,10 @@
+apiVersion: experimental.kpack.pivotal.io/v1alpha1
+kind: Stack
+metadata:
+  name: demo-stack
+spec:
+  id: "org.cloudfoundry.stacks.cflinuxfs3"
+  buildImage:
+    image: harbor2.lab.home:30003/tbs-stacks/custom-build@sha256:fd5024932fcb9f773e03ff1bc2fdb612b986a17e7b808f86d8e7a1f734089498
+  runImage:
+    image: harbor2.lab.home:30003/tbs-stacks/custom-run@sha256:7adf17b642710cbab846afa1efc01e3b976731b9f104677855165e90cc2371ea
