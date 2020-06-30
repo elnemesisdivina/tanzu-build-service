@@ -2,9 +2,11 @@ apiVersion: experimental.kpack.pivotal.io/v1alpha1
 kind: Stack
 metadata:
   name: demo-stack
+  annotations:
+    buildservice.pivotal.io/defaultRepository: "harbor2.lab.home:30003/tbs"
 spec:
   id: "org.cloudfoundry.stacks.cflinuxfs3"
   buildImage:
-    image: harbor2.lab.home:30003/tbs-stacks/custom-build@sha256:fd5024932fcb9f773e03ff1bc2fdb612b986a17e7b808f86d8e7a1f734089498
+    image: harbor2.lab.home:30003/tbs/tbs-dependencies-build-full-360a1b4deba42cc39585b4f9aa185e19@sha256:45c682a0db48fc17cd41773661b6d5211134efc12c796cca0abbf8412676b51f
   runImage:
-    image: harbor2.lab.home:30003/tbs-stacks/custom-run@sha256:7adf17b642710cbab846afa1efc01e3b976731b9f104677855165e90cc2371ea
+    image: harbor2.lab.home:30003/tbs/tbs-dependencies-run-full-b06366524d674607eaaa72ee7d372b7a@sha256:817d3a21025ea69104b4d257a8ed296b9a335bc8d181ed4649e77429c982578b

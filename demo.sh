@@ -13,27 +13,40 @@ clear
 # Show slides:
 # https://docs.google.com/presentation/d/14iOJZEasytUV_OMYRBGLjowL2RSJ_ionzzkBBM7GiQ4
 
-pe 'bat image-mysql.yml'
+pe 'kubectl apply -f kpack-resources/namespace.yml'
+
+pe 'secrets/harbor.sh'
+
+pe 'bat kpack-resources/store.yml'
+pe 'kubectl apply -f kpack-resources/store.yml'
+
+pe 'bat kpack-resources/stack.yml'
+pe 'kubectl apply -f kpack-resources/stack.yml'
+
+pe 'bat kpack-resources/custom-builder.yml'
+pe 'kubectl apply -f kpack-resources/custom-builder.yml'
+
+pe 'bat kpack-resources/image.yml'
 
 # First build, CONFIG
-pe 'pb image apply -f image-mysql.yml'
-pe 'pb image builds index.docker.io/techgnosis/mysql'
-pe 'pb image logs index.docker.io/techgnosis/mysql -b 1 -f'
-pe 'pb image build index.docker.io/techgnosis/mysql -b 1'
+pe 'kubectl apply -f kpack-resources/image.yml'
+pe 'kp build list mysql'
+pe 'kp build logs mysql -b 1'
+pe 'kp build status mysql -b 1'
 
 # watch since we trigger the commit build in browser
-pe 'watch pb image builds index.docker.io/techgnosis/mysql'
+pe 'watch kp build list mysql'
 # Second build, COMMIT
 # Go change the code in GitHub
 # Watch the COMMIT build
-pe 'pb image logs index.docker.io/techgnosis/mysql -b 2 -f'
-pe 'pb image build index.docker.io/techgnosis/mysql -b 2'
+pe 'kp build logs mysql -b 2'
+pe 'kp build status mysql -b 2'
 
 # Third build, STACK
-pe 'pb image builds index.docker.io/techgnosis/mysql'
+pe 'kp build list mysql'
 # Requires you to be logged into registry.pivotal.io via Docker
-pe 'pb stack update --build-image registry.pivotal.io/tbs-dependencies/build:1586272925 --run-image registry.pivotal.io/tbs-dependencies/run:1586272925'
+pe 'kp stack update demo-stack --build-image registry.pivotal.io/tbs-dependencies/build:1584989900 --run-image registry.pivotal.io/tbs-dependencies/run:1584989900'
 # Watch because I want to show how fast the Stack image build is
-pe 'watch pb image builds index.docker.io/techgnosis/mysql'
-pe 'pb image logs index.docker.io/techgnosis/mysql -b 3 -f'
+pe 'watch kp build list mysql'
+pe 'kp build logs mysql -b 3'
 

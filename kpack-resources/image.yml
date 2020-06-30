@@ -4,7 +4,7 @@ metadata:
   name: mysql
   namespace: tbs-demo
 spec:
-  tag: harbor2.lab.home:30003/tbs/mysql
+  tag: harbor2.lab.home:30003/library/mysql
   serviceAccount: default
   builder:
     name: demo-custom-builder
