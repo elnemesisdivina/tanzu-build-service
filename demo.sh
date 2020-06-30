@@ -4,12 +4,6 @@ source ./demo-magic.sh
 
 clear
 
-
-# Ahead of time:
-# 1. Follow all the steps in INSTALL.txt
-# 2. Delete mysql, tbs-default-cluster-builder, and tbs-custom-cluster-builder image repos
-# 3. cleanup.sh
-
 # Show slides:
 # https://docs.google.com/presentation/d/14iOJZEasytUV_OMYRBGLjowL2RSJ_ionzzkBBM7GiQ4
 
