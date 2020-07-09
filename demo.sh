@@ -24,23 +24,23 @@ pe 'bat kpack-resources/image.yml'
 
 # First build, CONFIG
 pe 'kubectl apply -f kpack-resources/image.yml'
-pe 'kp build list mysql'
-pe 'kp build logs mysql -b 1'
-pe 'kp build status mysql -b 1'
+pe 'kp build list tanzu-golang'
+pe 'kp build logs tanzu-golang -b 1'
+pe 'kp build status tanzu-golang -b 1'
 
 # watch since we trigger the commit build in browser
-pe 'watch kp build list mysql'
+pe 'watch kp build list tanzu-golang'
 # Second build, COMMIT
 # Go change the code in GitHub
 # Watch the COMMIT build
-pe 'kp build logs mysql -b 2'
-pe 'kp build status mysql -b 2'
+pe 'kp build logs tanzu-golang -b 2'
+pe 'kp build status tanzu-golang -b 2'
 
 # Third build, STACK
-pe 'kp build list mysql'
+pe 'kp build list tanzu-golang'
 # Requires you to be logged into registry.pivotal.io via Docker
 pe 'kp stack update demo-stack --build-image registry.pivotal.io/tbs-dependencies/build:1584989900 --run-image registry.pivotal.io/tbs-dependencies/run:1584989900'
 # Watch because I want to show how fast the Stack image build is
-pe 'watch kp build list mysql'
-pe 'kp build logs mysql -b 3'
+pe 'watch kp build list tanzu-golang'
+pe 'kp build logs tanzu-golang -b 3'
 
