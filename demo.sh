@@ -27,6 +27,8 @@ pe 'kubectl apply -f kpack-resources/image.yml'
 pe 'kp build list tanzu-golang'
 pe 'kp build logs tanzu-golang -b 1'
 pe 'kp build status tanzu-golang -b 1'
+pe 'skopeo inspect docker://harbor2.lab.home:30003/library/tanzu-golang:latest | jq .Layers > build1'
+
 
 # watch since we trigger the commit build in browser
 pe 'watch kp build list tanzu-golang'
@@ -35,6 +37,10 @@ pe 'watch kp build list tanzu-golang'
 # Watch the COMMIT build
 pe 'kp build logs tanzu-golang -b 2'
 pe 'kp build status tanzu-golang -b 2'
+pe 'skopeo inspect docker://harbor2.lab.home:30003/library/tanzu-golang:latest | jq .Layers > build2'
+
+pe 'bat build1 build2'
+pe 'diff build1 build2'
 
 # Third build, STACK
 pe 'kp build list tanzu-golang'
@@ -43,4 +49,9 @@ pe 'kp stack update demo-stack --build-image registry.pivotal.io/tbs-dependencie
 # Watch because I want to show how fast the Stack image build is
 pe 'watch kp build list tanzu-golang'
 pe 'kp build logs tanzu-golang -b 3'
+pe 'skopeo inspect docker://harbor2.lab.home:30003/library/tanzu-golang:latest | jq .Layers > build3'
+
+pe 'bat build2 build3'
+pe 'diff build2 build3'
+
 
