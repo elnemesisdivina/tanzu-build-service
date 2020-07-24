@@ -1,5 +1,5 @@
-DOCKER_REPOSITORY="harbor2.lab.home:30003/tbs"
-DOCKER_REGISTRY="harbor2.lab.home:30003"
+DOCKER_REPOSITORY="harbor.lab.home:30332/tbs"
+DOCKER_REGISTRY="harbor.lab.home:30332"
 REGISTRY_USERNAME=admin
 REGISTRY_PASSWORD="Harbor12345"
-CUSTOM_BUILDER_IMAGE="harbor2.lab.home:30003/tbs/tbs-default-cluster-builder"
+CUSTOM_BUILDER_IMAGE="harbor.lab.home:30332/tbs/tbs-default-cluster-builder"
