@@ -2,7 +2,7 @@
 
 #REGISTRY="index.docker.io/techgnosis"
 #REGISTRY="gcr.io/your-project/build-service"
-REGISTRY="harbor.lab.home:30332/tbs"
+REGISTRY="harbor.lab.home/tbs"
 
 duffle relocate -f ./build-service-0.2.0.tgz \
 -m ./relocated.json \
