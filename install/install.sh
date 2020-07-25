@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# duffle is only used to install TBS so I remove the duffle folder every time I install TBS
+# duffle (in my world) is only used to install TBS so I remove the duffle folder every time I install TBS
 rm -rf ~/.duffle
 
 

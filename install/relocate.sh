@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-#REGISTRY="index.docker.io/techgnosis"
+#REGISTRY="index.docker.io/your-username"
 #REGISTRY="gcr.io/your-project/build-service"
 REGISTRY="harbor.lab.home/tbs"
 
